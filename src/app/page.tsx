@@ -1,5 +1,6 @@
 'use client'
 import BusinessIcon from '@/assets/images/login/BusinessIcon'
+import { SignInForm } from '@/components/SignInForm'
 
 export default function Home() {
   return (
@@ -11,7 +12,9 @@ export default function Home() {
           fácil e prática.
         </p>
       </section>
-      <section className="flex h-[600px] w-full flex-col gap-6"></section>
+      <section className="flex h-[600px] w-full flex-col gap-6">
+        <SignInForm />
+      </section>
     </main>
   )
 }
