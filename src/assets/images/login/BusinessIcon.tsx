@@ -1,8 +1,7 @@
 export default function BusinessIcon() {
   return (
     <svg
-      width="400"
-      height="400"
+      className="h-auto w-full"
       viewBox="0 0 400 400"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

@@ -46,19 +46,18 @@ export function SignInForm() {
 
   const { handleSubmit } = signInForm
 
-  const inputStyle =
-    'rounded-xl border-0 bg-project-gray-700 px-6 py-5 text-base font-bold text-project-green-200 shadow-none placeholder:text-project-green-200'
   return (
     <FormProvider {...signInForm}>
       <form
         onSubmit={handleSubmit(signIn)}
         className="flex w-full flex-col gap-6"
       >
+        <Form.Title>Faça seu login</Form.Title>
         <Form.Field>
           <Form.Input
             name="email"
             placeholder="Digite seu e-mail"
-            className={inputStyle}
+            className="input-form"
           />
           <Form.ErrorMessage field="email" />
         </Form.Field>
@@ -69,14 +68,17 @@ export function SignInForm() {
             type="password"
             min={6}
             placeholder="Digite sua Senha"
-            className={inputStyle}
+            className="input-form"
           />
           <Form.ErrorMessage field="password" />
         </Form.Field>
 
-        <button type="submit" disabled={loading}>
-          {loading ? 'Carregando...' : 'Entrar'}
-        </button>
+        <div className="flex items-center">
+          <span className="flex-grow">Esqueceu a senha?</span>
+          <Form.Button disabled={loading}>
+            {loading ? 'Carregando...' : 'Entrar'}
+          </Form.Button>
+        </div>
       </form>
     </FormProvider>
   )
