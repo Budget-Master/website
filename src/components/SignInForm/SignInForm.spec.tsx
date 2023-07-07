@@ -36,7 +36,9 @@ describe('SignInForm Component', () => {
   })
 
   it('should submit the form correctly', async () => {
-    const { getByPlaceholderText, getByText } = render(<SignInForm />)
+    const { findByText, getByPlaceholderText, getByText } = render(
+      <SignInForm />,
+    )
     const emailInput = getByPlaceholderText('Digite seu e-mail')
     const passwordInput = getByPlaceholderText('Digite sua senha')
     const button = getByText('Entrar')
@@ -44,5 +46,7 @@ describe('SignInForm Component', () => {
     fireEvent.change(emailInput, { target: { value: 'teste@teste.com' } })
     fireEvent.change(passwordInput, { target: { value: 'password' } })
     fireEvent.click(button)
+
+    expect(await findByText('Carregando...')).toBeInTheDocument()
   })
 })
