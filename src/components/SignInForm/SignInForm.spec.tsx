@@ -1,9 +1,5 @@
-import { fireEvent, render, waitFor } from '@testing-library/react'
+import { fireEvent, render } from '@testing-library/react'
 import { SignInForm } from './index'
-
-jest.mock('@/utils/alert', () => ({
-  showSuccessNotification: jest.fn(),
-}))
 
 describe('SignInForm Component', () => {
   it('should render sign in form correctly', () => {
@@ -18,7 +14,7 @@ describe('SignInForm Component', () => {
   })
 
   it('should be errors rendered correctly', async () => {
-    const { queryByText, getByPlaceholderText, getByText } = render(
+    const { findByText, getByPlaceholderText, getByText } = render(
       <SignInForm />,
     )
     const emailInput = getByPlaceholderText('Digite seu e-mail')
@@ -27,20 +23,16 @@ describe('SignInForm Component', () => {
 
     fireEvent.click(button)
 
-    await waitFor(() => {
-      expect(queryByText('O e-mail é obrigatório')).toBeInTheDocument()
-      expect(queryByText('A senha é obrigatória')).toBeInTheDocument()
-    })
+    expect(await findByText('O e-mail é obrigatório')).toBeInTheDocument()
+    expect(await findByText('A senha é obrigatória')).toBeInTheDocument()
 
     fireEvent.change(passwordInput, { target: { value: 'pass' } })
     fireEvent.change(emailInput, { target: { value: 'test' } })
 
-    await waitFor(() => {
-      expect(queryByText('Formato de e-mail inválido')).toBeInTheDocument()
-      expect(
-        queryByText('A senha precisa ter no mínimo 6 caracteres'),
-      ).toBeInTheDocument()
-    })
+    expect(await findByText('Formato de e-mail inválido')).toBeInTheDocument()
+    expect(
+      await findByText('A senha precisa ter no mínimo 6 caracteres'),
+    ).toBeInTheDocument()
   })
 
   it('should submit the form correctly', async () => {
