@@ -1,3 +1,4 @@
+'use client'
 import { SignIn } from '@/services/user/login'
 import { showErrorNotification, showSuccessNotification } from '@/utils/alert'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -67,7 +68,7 @@ export function SignInForm() {
             name="password"
             type="password"
             min={6}
-            placeholder="Digite sua Senha"
+            placeholder="Digite sua senha"
             className="input-form"
           />
           <Form.ErrorMessage field="password" />
