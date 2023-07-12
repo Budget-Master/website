@@ -2,9 +2,9 @@ name: Execução de testes regressivos
 
 on:
   push:
-    branches: [ master ]
+    branches: [ master, staging, dev ]
   pull_request:
-    branches: [ master ]
+    branches: [ master, staging, dev ]
   schedule:
     - cron: '0 7,10,12,15,17,19 * * *'
 
