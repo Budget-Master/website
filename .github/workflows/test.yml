@@ -1,0 +1,29 @@
+name: Execução de testes regressivos
+
+on:
+  push:
+    branches: [ main, staging, dev ]
+  pull_request:
+    branches: [ main, staging, dev ]
+  schedule:
+    - cron: '0 7,10,12,15,17,19 * * *'
+
+jobs:
+  e2e-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout projeto
+        uses: actions/checkout@v2
+     
+      - name: Setup Node.js enviroment
+        uses: actions/setup-node@v2.2.0
+        with:
+          node-version: ${{ matrix.node-version }}
+     
+      - name: Install Dependencies
+        run: | 
+          yarn
+     
+      - name: Run Tests
+        run: yarn test
