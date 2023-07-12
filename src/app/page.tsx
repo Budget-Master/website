@@ -1,4 +1,3 @@
-'use client'
 import BusinessIcon from '@/assets/images/login/BusinessIcon'
 import { SignInForm } from '@/components/SignInForm'
 
