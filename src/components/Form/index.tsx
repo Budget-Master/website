@@ -1,9 +1,9 @@
-import { Title } from './Title'
-import { Label } from './Label'
-import { Field } from './Field'
-import { Input } from './Input'
-import { ErrorMessage } from './ErrorMessage'
-import { Button } from './Button'
+import { Button } from './button'
+import { ErrorMessage } from './error-message'
+import { Field } from './field'
+import { Input } from './input'
+import { Label } from './label'
+import { Title } from './title'
 
 export const Form = {
   Title,
