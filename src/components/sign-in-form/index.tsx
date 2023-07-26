@@ -5,7 +5,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { useState } from 'react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { z } from 'zod'
-import { Form } from '../form'
+import { Form } from '../forme'
 
 export function SignInForm() {
   const [loading, setLoading] = useState(false)
