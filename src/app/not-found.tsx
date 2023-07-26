@@ -1,4 +1,7 @@
+'use client'
+
 import NotFoundImage from '@/assets/images/not-found/not-found'
+import { NavigationMenu } from '@/components/navigation-menu'
 
 export default function NotFound() {
   return (
@@ -20,7 +23,9 @@ export default function NotFound() {
           </p>
         </div>
       </section>
-      <section className="flex h-full w-1/2 flex-col items-center justify-center bg-project-gray-100"></section>
+      <section className="flex h-full w-1/2 flex-col items-center justify-center bg-project-gray-100">
+        <NavigationMenu />
+      </section>
     </main>
   )
 }
