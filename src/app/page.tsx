@@ -1,5 +1,5 @@
 import BusinessIcon from '@/assets/images/login/BusinessIcon'
-import { SignInForm } from '@/components/SignInForm'
+import { SignInForm } from '@/components/sign-in-form'
 
 export default function Home() {
   return (
